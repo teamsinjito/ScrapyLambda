@@ -58,7 +58,7 @@ class ScrapyYahooItSpider(scrapy.Spider):
         detailLinks = response.css('div.contentsWrap > article > div > a::attr(href)').extract()
         
         #タブ名を取得
-        tab = response.css('header > nav > div.yjnHeader_nav_sub > ul > li.current > a::text').extract_first()
+        tab = response.css('header > nav > div.yjnHeader_nav_sub > ul > li.dfFfbj > a::text').extract_first()
         
         for detailLink in detailLinks:
             yield scrapy.Request(detailLink, callback=self.parse_detail, meta={"tab": tab})

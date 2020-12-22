@@ -10,7 +10,6 @@ import psycopg2
 from PIL import Image
 from io import BytesIO
 import urllib.request
-import random
 import base64
 import requests
 import boto3
@@ -105,7 +104,7 @@ class SinjitopicsScrapyPipeline:
     ###
     ############################################################################           
     def setAnimationGid():
-        return random.randint(1, 2)  
+        return 1 
 
 
     ############################################################################
@@ -243,14 +242,24 @@ class SinjitopicsScrapyPipeline:
         data = semantic_value / semantic_count
         print(data)
         #分析結果から音楽IDを振り分ける
-        if data > -0.48:
-            print(random.randint(1, 4))
-            return random.randint(1, 4)
-        elif data > -0.6:
-            print(random.randint(5, 6))
-            return random.randint(1, 4)
+        if data > -0.42:
+            return 1
+        elif data > -0.44:
+            return 2
+        elif data > -0.46:
+            return 3
+        elif data > -0.48:
+            return 4
+        elif data > -0.55:
+            return 5
+        elif data > -0.60:
+            return 6
+        elif data > -0.65:
+            return 7
+        elif data > -0.70:
+            return 8
         else:
-            print(random.randint(7, 9))
-            return random.randint(1, 4)
+            return 9
             
         
+ 
