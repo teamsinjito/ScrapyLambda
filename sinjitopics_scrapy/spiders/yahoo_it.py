@@ -20,13 +20,13 @@ class ScrapyYahooItSpider(scrapy.Spider):
    
     ############################################################################
     ###
-    ###初回実行（1週間前の記事をDBから削除）
+    ###初回実行（2日前の記事をDBから削除）
     ###
     ############################################################################   
     def __init__(self   ):
         print(self.today)
         #本日から7日前を算出
-        d = self.today + datetime.timedelta(days=-7)
+        d = self.today + datetime.timedelta(days=-1)
         print(d.strftime("%Y%m%d"))
         SinjitopicsScrapyPipeline.deleteDatabase(d.strftime("%Y%m%d"))
         
